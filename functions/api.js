@@ -75,5 +75,11 @@ router.post('/products', (req, res) => {
 // Mount router
 app.use('/netlify/functions/api', router);
 
+const port = process.env.PORT || 3007;
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});
+
+
 // Wrap the app with serverless handler
 module.exports.handler = serverless(app);
